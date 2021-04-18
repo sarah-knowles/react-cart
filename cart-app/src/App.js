@@ -11,7 +11,7 @@ function App() {
           <ul>
             <li><a href='#'>Home</a></li>
             <li><a href='#'>About</a></li>
-            <li><a href='#'>Cart</a></li>
+            <li><a href='#'><ion-icon name="basket-outline"></ion-icon>Cart: <span>0</span></a></li>
           </ul>
         </nav>
       </div>
