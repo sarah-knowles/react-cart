@@ -52,8 +52,15 @@ body {
 
 a {
   color: #1f0b11;
+  cursor: pointer;
   padding-left: 10px;
   text-decoration: none;
+}
+
+h1 {
+  color: #1f0b11;
+  font-size: 3.25rem;
+  font-weight: bolder;
 }
 
 h2 {
@@ -62,3 +69,8 @@ h2 {
   font-weight: bolder;
 }
 
+.cart ion-icon {
+  vertical-align: middle;
+  font-size: 40px;
+  padding-right: 15px;
+}
