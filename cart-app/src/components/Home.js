@@ -10,19 +10,19 @@ const Home = (props) => {
   return (
     <div className='container'>
       <div className='image'>
-        <img src={dress1} alt='image not loaded' />
+        <img src={dress1} alt='not loaded' />
         <h3>Cue dress</h3>
         <h4>$15.00</h4>
         <a onClick={props.addBasket} className='addToCart cart1' href='#'>Add to Cart</a>
       </div>
       <div className='image'>
-        <img src={dress2} alt='image not loaded' />
+        <img src={dress2} alt='not loaded' />
         <h3>Cue dress</h3>
         <h4>$12.00</h4>
         <a onClick={props.addBasket} className='addToCart cart2' href='#'>Add to Cart</a>
       </div>
       <div className='image'>
-        <img src={dress3} alt='image not loaded' />
+        <img src={dress3} alt='not loaded' />
         <h3>Cue dress</h3>
         <h4>$12.00</h4>
         <a onClick={props.addBasket} className='addToCart cart3' href='#'>Add to Cart</a>
