@@ -1,6 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { getNumbers } from '../actions/getAction';
 
-function Header() {
+
+function Header(props) {
+ 
+  useEffect(() => {
+    getNumbers();
+  }, [])
+
   return (
     <header className='heading'>
       <div className='overlay'>
@@ -9,7 +17,7 @@ function Header() {
           <ul>
             <li><a href='#'>Home</a></li>
             <li><a href='#'>About</a></li>
-            <li className='cart'><a href='#'><ion-icon name="basket-outline"></ion-icon>Cart <span>0</span></a></li>
+            <li className='cart'><a href='#'>Cart <span>{props.basketProps.basketContent}</span></a></li>
           </ul>
         </nav>
       </div>
@@ -17,4 +25,8 @@ function Header() {
   )
 }
 
-export default Header;
+const mapStateToProps = state => ({
+  basketProps: state.basketState
+})
+
+export default connect(mapStateToProps, { getNumbers })(Header);
