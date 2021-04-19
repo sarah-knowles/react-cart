@@ -9,7 +9,7 @@ export default (state = initialState, action) => {
   switch(action.type) {
     case ADD_PRODUCT_TO_BASKET: 
     return {
-      basketContent: this.basketContent + 1
+      basketContent: state.basketContent + 1
     }
     case GET_NUMBERS:
       return {
