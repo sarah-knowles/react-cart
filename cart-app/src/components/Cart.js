@@ -39,7 +39,7 @@ function Cart({ basketProps }) {
     <div className='products-container'>
       <div className='product-header'>
         <h5 className='product-title'>Product</h5>
-        <h5 className='price sm-hide'>Price</h5>
+        <h5 className='price'>Price</h5>
         <h5 className='quantity'>Quantity</h5>
         <h5 className='total'>Total</h5>
       </div>
