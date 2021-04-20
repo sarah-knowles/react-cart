@@ -1,9 +1,10 @@
 import { ADD_PRODUCT_TO_BASKET } from './types';
 
-export const addBasket = () => {
+export const addBasket = (productName) => {
   return (dispatch) => {
     dispatch({
-      type: ADD_PRODUCT_TO_BASKET
+      type: ADD_PRODUCT_TO_BASKET,
+      payload: productName
     })
   }
 }

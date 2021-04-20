@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getNumbers } from '../actions/getAction';
+import { Link } from 'react-router-dom';
 
 
 function Header(props) {
@@ -15,9 +16,9 @@ function Header(props) {
         <nav className='nav'>
           <h2>Shop</h2>
           <ul>
-            <li><a href='#'>Home</a></li>
-            <li><a href='#'>About</a></li>
-            <li className='cart'><a href='#'>Cart <span>{props.basketProps.basketContent}</span></a></li>
+            <li><Link to='/'>Home</Link></li>
+            <li><Link to='about'>About</Link></li>
+            <li className='cart'><Link to='cart'>Cart <span>{props.basketProps.basketContent}</span></Link></li>
           </ul>
         </nav>
       </div>
