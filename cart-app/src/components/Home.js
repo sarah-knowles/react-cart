@@ -13,19 +13,19 @@ const Home = (props) => {
         <img src={dress1} alt='not loaded' />
         <h3>Cue dress</h3>
         <h4>$15.00</h4>
-        <a onClick={() => props.addBasket('CueDress1')} className='addToCart cart1' href='#'>Add to Cart</a>
+        <a onClick={() => props.addBasket('cueDress1')} className='addToCart cart1' href='#'>Add to Cart</a>
       </div>
       <div className='image'>
         <img src={dress2} alt='not loaded' />
         <h3>Cue dress</h3>
         <h4>$12.00</h4>
-        <a onClick={() => props.addBasket('CueDress2')} className='addToCart cart2' href='#'>Add to Cart</a>
+        <a onClick={() => props.addBasket('cueDress2')} className='addToCart cart2' href='#'>Add to Cart</a>
       </div>
       <div className='image'>
         <img src={dress3} alt='not loaded' />
         <h3>Cue dress</h3>
         <h4>$12.00</h4>
-        <a onClick={() => props.addBasket('CueDress3')} className='addToCart cart3' href='#'>Add to Cart</a>
+        <a onClick={() => props.addBasket('cueDress3')} className='addToCart cart3' href='#'>Add to Cart</a>
       </div>
     </div>
   );
