@@ -10,7 +10,7 @@ import dress3 from '../images/dress3.jpg';
 function Cart({ basketProps, productQuantity }) {
   let productsInCart = [];
 
-  Object.keys(basketProps.products).forEach(function(item) {
+  Object.keys(basketProps.products).forEach(function (item) {
     if (basketProps.products[item].inCart) {
       productsInCart.push(basketProps.products[item])
     }
@@ -27,24 +27,27 @@ function Cart({ basketProps, productQuantity }) {
       return dress3;
     }
   }
- 
+
   productsInCart = productsInCart.map((product, index) => {
     return (
       <Fragment key={index}>
-        <div className='product'><img src={productImages(product)} alt='dress' />
+        <div className='product'><ion-icon name='close-circle'></ion-icon><img src={productImages(product)} alt='dress' />
           <span className='sm-hide'>{product.name}</span>
         </div>
         <div className='price sm-hide'>${product.price}:00</div>
         <div className='quantity'>
-          <ion-icon className='decrease' name='arrow-back-circle-outline' onClick={() => productQuantity('decrease', product.tagName)}></ion-icon>
+          <ion-icon onClick={() => productQuantity('decrease', product.tagName)}
+            className='decrease' name='arrow-back-circle-outline'></ion-icon>
           <span>{product.amount}</span>
-          <ion-icon className='increase' name='arrow-forward-circle-outline' onClick={() => productQuantity('increase', product.tagName)}></ion-icon>
+          <ion-icon className='increase' name='arrow-forward-circle-outline'
+            onClick={() => productQuantity('increase', product.tagName)}></ion-icon>
         </div>
         <div className='total'>${(product.amount * product.price)}:00</div>
       </Fragment>
     )
   });
   console.log('basketProps', basketProps)
+  
   return (
     <div className='products-container'>
       <div className='product-header'>
@@ -65,7 +68,7 @@ function Cart({ basketProps, productQuantity }) {
 }
 
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   basketProps: state.basketState
 })
 
