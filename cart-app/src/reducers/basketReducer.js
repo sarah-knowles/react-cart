@@ -34,9 +34,10 @@ export default (state = initialState, action) => {
 
   switch (action.type) {
     case ADD_PRODUCT_TO_BASKET:
-      productSelected = { ...state.products[action.payload] }
+      productSelected = { ...state.products[action.payload]}
       productSelected.amount += 1;
       productSelected.inCart = true;
+      console.log(productSelected)
       return {
         ...state,
         basketContent: state.basketContent + 1,
@@ -55,7 +56,7 @@ export default (state = initialState, action) => {
       productSelected.amount += 1;
       return {
         ...state,
-        cartCost: state.cartCost + state.products[action.payload],
+        cartCost: state.cartCost + state.products[action.payload].price,
         products: {
           ...state.products,
           [action.payload]: productSelected

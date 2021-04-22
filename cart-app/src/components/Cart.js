@@ -29,10 +29,9 @@ function Cart({ basketProps, productQuantity }) {
   }
  
   productsInCart = productsInCart.map((product, index) => {
-
     return (
       <Fragment key={index}>
-        <div className='product'><img src={productImages(product)} />
+        <div className='product'><img src={productImages(product)} alt='dress' />
           <span className='sm-hide'>{product.name}</span>
         </div>
         <div className='price sm-hide'>${product.price}:00</div>
@@ -41,10 +40,11 @@ function Cart({ basketProps, productQuantity }) {
           <span>{product.amount}</span>
           <ion-icon className='increase' name='arrow-forward-circle-outline' onClick={() => productQuantity('increase', product.tagName)}></ion-icon>
         </div>
-        <div className='total'>${product.numbers * product.price}:00</div>
+        <div className='total'>${(product.amount * product.price)}:00</div>
       </Fragment>
     )
   });
+  console.log('basketProps', basketProps)
   return (
     <div className='products-container'>
       <div className='product-header'>
