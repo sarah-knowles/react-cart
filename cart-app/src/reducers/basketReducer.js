@@ -34,7 +34,7 @@ export default (state = initialState, action) => {
 
   switch (action.type) {
     case ADD_PRODUCT_TO_BASKET:
-      productSelected = { ...state.products[action.payload]}
+      productSelected = { ...state.products[action.payload]};
       productSelected.amount += 1;
       productSelected.inCart = true;
       console.log(productSelected)
@@ -52,7 +52,7 @@ export default (state = initialState, action) => {
         ...state
       }
     case INCREASE_QUANTITY:
-      productSelected = { ...state.products[action.payload]}
+      productSelected = { ...state.products[action.payload]};
       productSelected.amount += 1;
       return {
         ...state,
@@ -64,6 +64,7 @@ export default (state = initialState, action) => {
       }
     case DECREASE_QUANTITY:
       productSelected = { ...state.products[action.payload]};
+      console.log('poo');
       let newCartCost = 0;
       if (productSelected.amount === 0) {
         productSelected.amount = 0;
