@@ -1,4 +1,4 @@
-import { ADD_PRODUCT_TO_BASKET, GET_NUMBERS, INCREASE_QUANTITY, DECREASE_QUANTITY } from "../actions/types";
+import { ADD_PRODUCT_TO_BASKET, GET_NUMBERS, INCREASE_QUANTITY, DECREASE_QUANTITY, CLEAR_PRODUCT } from "../actions/types";
 
 
 const initialState = {
@@ -56,6 +56,7 @@ export default (state = initialState, action) => {
       productSelected.amount += 1;
       return {
         ...state,
+        basketContent: state.basketContent + 1,
         cartCost: state.cartCost + state.products[action.payload].price,
         products: {
           ...state.products,
@@ -64,23 +65,42 @@ export default (state = initialState, action) => {
       }
     case DECREASE_QUANTITY:
       productSelected = { ...state.products[action.payload]};
-      console.log('poo');
       let newCartCost = 0;
+      let newBasketNumbers = 0;
       if (productSelected.amount === 0) {
         productSelected.amount = 0;
         newCartCost = state.cartCost;
+        newBasketNumbers = state.basketContent;
       } else {
         productSelected.amount -= 1;
-        newCartCost = state.cartCost - state.products[action.payload].price
+        newCartCost = state.cartCost - state.products[action.payload].price;
+        newBasketNumbers = state.basketContent - 1
       }
+
       return {
         ...state,
+        basketContent: state.basketContent - 1,
         cartCost: newCartCost,
         products: {
           ...state.products,
           [action.payload]: productSelected
         }
       }
+      case CLEAR_PRODUCT:
+        productSelected = {...state.products[action.payload]};
+        let currentProducts = productSelected.amount;
+        productSelected.amount = 0;
+        productSelected.inCart = false;
+      return {
+        ...state,
+        basketContent: state.basketContent - currentProducts,
+        cartCost: state.cartCost - (currentProducts * productSelected.price),
+        products: {
+          ...state.products,
+          [action.payload]: productSelected
+        }
+      }  
+
     default:
       return state;
   }

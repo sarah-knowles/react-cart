@@ -1,13 +1,13 @@
 
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
-import { productQuantity } from '../actions/productQuantity';
+import { productQuantity, clearProduct } from '../actions/productQuantity';
 import dress1 from '../images/dress1.jpg';
 import dress2 from '../images/dress2.jpg';
 import dress3 from '../images/dress3.jpg';
 
 
-function Cart({ basketProps, productQuantity }) {
+function Cart({ basketProps, productQuantity, clearProduct }) {
   let productsInCart = [];
 
   Object.keys(basketProps.products).forEach(function (item) {
@@ -31,16 +31,16 @@ function Cart({ basketProps, productQuantity }) {
   productsInCart = productsInCart.map((product, index) => {
     return (
       <Fragment key={index}>
-        <div className='product'><ion-icon name='close-circle'></ion-icon><img src={productImages(product)} alt='dress' />
+        <div className='product'><ion-icon onClick={() => clearProduct('cueD' + product.tagName.slice(1))} name='close-circle'></ion-icon><img src={productImages(product)} alt='dress' />
           <span className='sm-hide'>{product.name}</span>
         </div>
         <div className='price sm-hide'>${product.price}:00</div>
         <div className='quantity'>
-          <ion-icon onClick={() => productQuantity('decrease', 'cueD'+product.tagName.slice(1))}
+          <ion-icon onClick={() => productQuantity('decrease', 'cueD' + product.tagName.slice(1))}
             className='decrease' name='arrow-back-circle-outline'></ion-icon>
           <span>{product.amount}</span>
           <ion-icon className='increase' name='arrow-forward-circle-outline'
-            onClick={() => productQuantity('increase', 'cueD'+product.tagName.slice(1))}></ion-icon>
+            onClick={() => productQuantity('increase', 'cueD' + product.tagName.slice(1))}></ion-icon>
         </div>
         <div className='total'>${(product.amount * product.price)}:00</div>
       </Fragment>
@@ -72,4 +72,4 @@ const mapStateToProps = (state) => ({
   basketProps: state.basketState
 })
 
-export default connect(mapStateToProps, { productQuantity })(Cart);
+export default connect(mapStateToProps, { productQuantity, clearProduct })(Cart);
